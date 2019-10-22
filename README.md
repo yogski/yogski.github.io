@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+<a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/free-bootstrap-theme-for-web-developers/" target="_blank"><img src="https://themes.3rdwavemedia.com/wp-content/uploads/2018/07/free-bootstrap-portfolio-theme-for-web-developers.jpg" alt="Developer Theme" width="750" /></a>
 
-You can use the [editor on GitHub](https://github.com/yogski/yogski.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Theme Details & Demo
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Demo:** https://themes.3rdwavemedia.com/bootstrap-templates/resume/free-bootstrap-theme-for-web-developers/
 
-### Markdown
+Developer is a free Bootstrap 4 theme designed to **help developers promote their work**. 
+It can be used as a **professional portal** to your other online portfolios or websites (eg. Linkedin, CoderWall, Blog, GitHub etc) **in a modular fashion**. 
+The template comes with all of the **source SCSS files included** so the styling/colour can easily be customised to your taste.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Author & License
 
-```markdown
-Syntax highlighted code block
+This Bootstrap template is made by UX/UI designer [Xiaoying Riley](https://twitter.com/3rdwave_themes) for developers and is 100% FREE as long as you **keep the footer attribution link**. You do not have the rights to resell, sublicense or redistribute (even for free) the template on its own or as a separate attachment from any of your work.
 
-# Header 1
-## Header 2
-### Header 3
+If you'd like to **use the template without the footer attribution link**, you can [buy the **commercial license** via the theme website](https://themes.3rdwavemedia.com/bootstrap-templates/resume/free-bootstrap-theme-for-web-developers/)
 
-- Bulleted
-- List
+#### Follow Xiaoying
 
-1. Numbered
-2. List
+[Twitter](https://twitter.com/3rdwave_themes)
 
-**Bold** and _Italic_ and `Code` text
+[Facebook](https://www.facebook.com/3rdwavethemes/)
 
-[Link](url) and ![Image](src)
-```
+[Dribbble](https://dribbble.com/Xiaoying)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+[Medium](https://medium.com/@3rdwave_themes)
 
-### Jekyll Themes
+[Linkedin](https://uk.linkedin.com/in/xiaoying)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yogski/yogski.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+## Latest Version
+**v2.2** - 16 Oct 2019
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[Changelog](https://themes.3rdwavemedia.com/bootstrap-templates/resume/free-bootstrap-theme-for-web-developers/?target=changelog)
+
+
+## Features
+
+-  Fully Responsive
+-  HTML5 + CSS3
+-  Built on Bootstrap 4
+-  **SCSS** source files included
+-  1000+ FontAwesome 5 icons
+
+
+## Credits
+- [Bootstrap](http://getbootstrap.com/)
+- [FontAwesome](http://fortawesome.github.io/Font-Awesome/)
+- [jQuery](http://jquery.com/)
+- [GitHub Activity Stream](http://caseyscarborough.com/projects/github-activity/)
+- [GitHub Calendar Plugin](https://github.com/IonicaBizau/github-calendar)
+- [jQuery RSS](https://github.com/sdepold/jquery-rss)
+- Profile image: [Ben Smith](https://www.flickr.com/photos/dotbenjamin/2577394151)
