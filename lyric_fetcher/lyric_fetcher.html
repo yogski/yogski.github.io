@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lyric Fetcher by Yogi Saputro</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="lyrics">
+
+        <input type="text" id="input_artist" name="input_artist" placeholder="nama artis / band">
+        <input type="text" id="input_song" name="input_song" placeholder="nama lagu">
+        <button id="fetch_lyric" onclick="fetchLyrics(document.getElementById('input_artist').value,document.getElementById('input_song').value)">Cari Lirik</button>
+
+      <p style="white-space: pre-wrap;" id="lyricoutput"></p>
+      <p><a class="more-link" href="../index.html"><i class="fas fa-external-link-alt"></i>Go back</a></p> 
+
+    </div>
+    <script src="script.js">
+    </script>
+  </body>
+</html>
