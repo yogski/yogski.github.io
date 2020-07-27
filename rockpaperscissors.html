@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/rockpaperscissors.css">
+</head>
+
+<body>
+    <div>
+        <div class="container">
+                <div class="row my-3">
+                    <div class="col-md-12 text-center d-lg-flex flex-column justify-content-lg-center">
+                        <h2>Rock, Paper & Scissors</h2>
+                        <h6>RULES</h6>
+                        <p>Click on rock, paper, or scissors on left part.</p>
+                    </div>
+                </div>
+                <div class="row my-3">
+                <div class="col-md-5 text-center d-flex flex-column align-items-lg-center player-area">
+                    <figure class="figure" onclick="playGame('rock')"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/3121/3121819.svg" width="80" loading="lazy">
+                        <figcaption class="figure-caption">Rock</figcaption>
+                    </figure>
+                    <figure class="figure" onclick="playGame('paper')"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/2983/2983787.svg" width="80" loading="lazy">
+                        <figcaption class="figure-caption">Paper</figcaption>
+                    </figure>
+                    <figure class="figure" onclick="playGame('scissors')"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/1006/1006952.svg" width="80" loading="lazy">
+                        <figcaption class="figure-caption">Scissors</figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-2 text-center d-flex flex-column align-items-lg-center result-area">
+                    <figure id="figure-result" class="figure"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/3121/3121819.svg" width="80" loading="lazy">
+                        <figcaption class="figure-caption result"></figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-5 text-center d-flex flex-column align-items-lg-center opponent-area">
+                    <figure class="figure"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/3121/3121819.svg" width="80" loading="lazy">
+                        <figcaption class="figure-caption">Rock</figcaption>
+                    </figure>
+                    <figure class="figure"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/2983/2983787.svg" width="80" loading="lazy">
+                        <figcaption class="figure-caption">Paper</figcaption>
+                    </figure>
+                    <figure class="figure"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/1006/1006952.svg" width="80" loading="lazy">
+                        <figcaption class="figure-caption">Scissors</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12 text-center d-lg-flex justify-content-lg-center">
+                    <figure class="figure text-center" onclick="resetGame()"><img class="img-fluid figure-img p-1 m-1" src="https://image.flaticon.com/icons/svg/929/929472.svg" loading="lazy" width="50" height="auto">
+                        <figcaption class="figure-caption">Restart</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/rockpaperscissors.min.js"></script>
+</body>
+
+</html>

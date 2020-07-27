@@ -1,0 +1,12 @@
+.player-area .figure{
+    border: 1px solid transparent;
+    border-radius: 7.5%;
+}
+
+.player-area .figure:hover{
+    border: 1px solid maroon;
+}
+
+#figure-result {
+    display: none;
+}
