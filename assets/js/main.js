@@ -31,7 +31,11 @@ jQuery(document).ready(function($) {
     $("#rss-feeds").rss(
     
         //Change this to your own rss feeds
-        "https://medium.com/feed/@yogski",
+        [
+            "https://dev.to/feed/yogski",
+            "https://medium.com/feed/@yogisaputro",
+            // "https://yogski.wordpress.com/feed/"
+        ],
         
         {
         // how many entries do you want?
@@ -42,7 +46,7 @@ jQuery(document).ready(function($) {
         // the effect, which is used to let the entries appear
         // default: 'show'
         // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
-        effect: 'slideFastSynced',
+        effect: 'show',
         
         // will request the API via https
 	    // default: false

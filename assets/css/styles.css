@@ -115,6 +115,30 @@ a.dotted-link:hover {
   color: #49515a;
 }
 
+.button-custom {
+  color: #49515A;
+  /* font-family: Trebuchet MS; */
+  font-size: 0.6em;
+  font-weight: 600;
+  padding: 0.2em;
+  -webkit-box-shadow: 0 4px 0 0 #49515A;
+  -moz-box-shadow: 0 4px 0 0 #49515A;
+  box-shadow: 0 4px 0 0 #49515A;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button-custom:hover {
+  color: #81401a;
+  background-color: #DAE3E7;
+  text-decoration: none;
+  -webkit-box-shadow: 0 6px 0 0 #49515A;
+  -moz-box-shadow: 0 6px 0 0 #49515A;
+  box-shadow: 0 6px 0 0 #49515A;
+}
+
 /* ======= Header ======= */
 .header {
   padding: 30px 0;
