@@ -696,3 +696,22 @@ a.dotted-link:hover {
   position: sticky;
   top: 0;
 }
+
+.container-fluid .display-overlay {
+  background: rgba(218, 227, 231, 0.5);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s
+}
+
+.container-fluid:hover .display-overlay {
+  opacity: 0.75
+}
