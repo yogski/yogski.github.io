@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yogi Saputro: profile">
+  <meta name="description" content="Yogi Saputro: List of Projects">
   <meta name="author" content="Yogi Saputro">    
   <link rel="shortcut icon" href="favicon.ico">  
   
@@ -24,15 +24,22 @@
 <body>
   <div class="container sections-wrapper">
     <div class="row">
+      
+      <!-- Left Side Menu -->
       <div class="primary col-md-12 col-lg-2">
-        <section class="latest section">
+        <section class="latest section sticky-part">
           <div class="section-inner">
-            <h3 class="title">
-              <a href="./index.html" class="button-custom">Home</a>
-            </h3>
+            <h4 class="title">
+              <a href="./index.html" class="button-custom mb-2">Home</a>
+              <a href="./articles.html" class="button-custom mb-2">Articles</a>
+              <a href="./systems.html" class="button-custom mb-2">Systems</a>
+            </h4>
           </div>
         </section>
       </div>
+      <!-- Left Side Menu End -->
+
+      <!-- Right Side : Project List -->
       <div class="primary col-sm-12 col-md-10">
         <section class="latest section">
           <div class="section-inner">
@@ -41,65 +48,73 @@
                 This is list of my projects available for public. There are other undisclosable projects I've completed including: dashboard, ETL pipeline, RESTful microservices, ERP.
               </p>
               <div class="content">
-                  <div class="item row">
-                      <a class="col-md-4 col-12" href="https://yogski.github.io/stock-opname" target="_blank">
-                      <img class="img-fluid project-image" src="assets/images/projects/stock-opname.png" alt="79home.png" />
-                      </a>
-                      <div class="desc col-md-8 col-12">
-                          <h3 class="title"><a href="https://yogski.github.io/stock-opname" target="_blank">Stock Opname</a></h3>
-                          <p class="mb-2">A web-based tool for inventory audit. Simple, free, multi-platform, works well with barcode scanner.</p>
-                          <p><a class="more-link" href="https://yogski.github.io/stock-opname" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                      </div><!--//desc-->                          
-                  </div><!--//item-->
-                  
-                  <div class="item row">
-                    <a class="col-md-4 col-12" href="https://github.com/yogski/indonesian_retail_api" target="_blank">
-                    <img class="img-fluid project-image" src="assets/images/projects/rest-api.png" alt="79cars.png" />
+
+                <!-- Stock Opname -->
+                <div class="item row">
+                  <a class="col-md-4 col-12" href="https://yogski.github.io/stock-opname" target="_blank">
+                  <img class="img-fluid project-image" src="assets/images/projects/stock-opname.png" alt="79home.png" />
+                  </a>
+                  <div class="desc col-md-8 col-12">
+                      <h3 class="title"><a href="https://yogski.github.io/stock-opname" target="_blank">Stock Opname</a></h3>
+                      <p class="mb-2">A web-based tool for inventory audit. Simple, free, multi-platform, works well with barcode scanner.</p>
+                      <p><a class="more-link" href="https://yogski.github.io/stock-opname" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                  </div><!--//desc-->                          
+                </div><!--//item-->
+                
+                <!-- Indonesian Retail API -->
+                <div class="item row">
+                  <a class="col-md-4 col-12" href="https://github.com/yogski/indonesian_retail_api" target="_blank">
+                  <img class="img-fluid project-image" src="assets/images/projects/rest-api.png" alt="79cars.png" />
+                  </a>
+                  <div class="desc col-md-8 col-12">
+                      <h3 class="title"><a href="https://github.com/yogski/indonesian_retail_api" target="_blank">Indonesian Barcode API</a></h3>
+                      <p class="mb-2">REST API microservice that provides product information based on its barcode. Powered by Express.js and PostgreSQL.</u>.</p>
+                      <p><a class="more-link" href="https://github.com/yogski/indonesian_retail_api" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                  </div><!--//desc-->                          
+                </div><!--//item-->
+
+                <!-- 79 Home -->
+                <div class="item row">
+                    <a class="col-md-4 col-12" href="https://79home.co.id" target="_blank">
+                    <img class="img-fluid project-image" src="assets/images/projects/79home.png" alt="79home.png" />
                     </a>
                     <div class="desc col-md-8 col-12">
-                        <h3 class="title"><a href="https://github.com/yogski/indonesian_retail_api" target="_blank">Indonesian Barcode API</a></h3>
-                        <p class="mb-2">REST API microservice that provides product information based on its barcode. Powered by Express.js and PostgreSQL.</u>.</p>
-                        <p><a class="more-link" href="https://github.com/yogski/indonesian_retail_api" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                        <h3 class="title"><a href="https://79home.co.id" target="_blank">79Home - Property Listing Website</a></h3>
+                        <p class="mb-2">An Indonesian real estate listing website where users can sell and buy house, apartment, or shops. Included features: multi-role login, upload a real estate for sale, buy/booking, and admin dashboard.</p>
+                        <p><a class="more-link" href="https://79home.co.id" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                    </div><!--//desc-->                          
+                </div><!--//item-->
+                
+                <!-- 79 Cars -->
+                <div class="item row">
+                    <a class="col-md-4 col-12" href="https://79cars.co.id" target="_blank">
+                    <img class="img-fluid project-image" src="assets/images/projects/79cars.png" alt="79cars.png" />
+                    </a>
+                    <div class="desc col-md-8 col-12">
+                        <h3 class="title"><a href="https://79cars.co.id" target="_blank">79Cars - Used Car Listing Website</a></h3>
+                        <p class="mb-2">An Indonesian used car listing website where users can sell and buy used car comfortably. Included features: multi-role login, upload a car for sale, buy/booking, and admin dashboard.</p>
+                        <p><a class="more-link" href="https://79cars.co.id" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
                     </div><!--//desc-->                          
                 </div><!--//item-->
 
+                <!-- Pakarian Landing Page -->
                 <div class="item row">
-                      <a class="col-md-4 col-12" href="https://79home.co.id" target="_blank">
-                      <img class="img-fluid project-image" src="assets/images/projects/79home.png" alt="79home.png" />
-                      </a>
-                      <div class="desc col-md-8 col-12">
-                          <h3 class="title"><a href="https://79home.co.id" target="_blank">79Home - Property Listing Website</a></h3>
-                          <p class="mb-2">An Indonesian real estate listing website where users can sell and buy house, apartment, or shops. Included features: multi-role login, upload a real estate for sale, buy/booking, and admin dashboard.</p>
-                          <p><a class="more-link" href="https://79home.co.id" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                      </div><!--//desc-->                          
-                  </div><!--//item-->
-                  
-                  <div class="item row">
-                      <a class="col-md-4 col-12" href="https://79cars.co.id" target="_blank">
-                      <img class="img-fluid project-image" src="assets/images/projects/79cars.png" alt="79cars.png" />
-                      </a>
-                      <div class="desc col-md-8 col-12">
-                          <h3 class="title"><a href="https://79cars.co.id" target="_blank">79Cars - Used Car Listing Website</a></h3>
-                          <p class="mb-2">An Indonesian used car listing website where users can sell and buy used car comfortably. Included features: multi-role login, upload a car for sale, buy/booking, and admin dashboard.</p>
-                          <p><a class="more-link" href="https://79cars.co.id" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                      </div><!--//desc-->                          
-                  </div><!--//item-->
-
-                  <div class="item row">
-                      <a class="col-md-4 col-12" href="https://yogski.live/pakarian/" target="_blank">
-                      <img class="img-fluid project-image" src="assets/images/projects/pakarian-mini.png" alt="79cars.png" />
-                      </a>
-                      <div class="desc col-md-8 col-12">
-                          <h3 class="title"><a href="https://yogski.live/pakarian/" target="_blank">Pakarian - Landing Page for Specialist-As-A-Service</a></h3>
-                          <p class="mb-2">Pakarian is a pre-seed startup in Indonesia, focusing on providing expert advice or implementation to governments and businesses. Pakarian holds close relationship with experts from professional associations and reputable univeristy alumni. Pakarian will help organizations to break barriers, transform, or generally serve better.</p>
-                          <p><a class="more-link" href="https://yogski.live/pakarian/" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                      </div><!--//desc-->                          
-                  </div><!--//item-->
+                    <a class="col-md-4 col-12" href="https://yogski.live/pakarian/" target="_blank">
+                    <img class="img-fluid project-image" src="assets/images/projects/pakarian-mini.png" alt="79cars.png" />
+                    </a>
+                    <div class="desc col-md-8 col-12">
+                        <h3 class="title"><a href="https://yogski.live/pakarian/" target="_blank">Pakarian - Landing Page for Specialist-As-A-Service</a></h3>
+                        <p class="mb-2">Pakarian is a pre-seed startup in Indonesia, focusing on providing expert advice or implementation to governments and businesses. Pakarian holds close relationship with experts from professional associations and reputable univeristy alumni. Pakarian will help organizations to break barriers, transform, or generally serve better.</p>
+                        <p><a class="more-link" href="https://yogski.live/pakarian/" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                    </div><!--//desc-->                          
+                </div><!--//item-->
 
               </div><!--//content-->  
           </div><!--//section-inner-->                
       </section><!--//section-->
       </div>
+      <!-- Right Side : Project Menu End -->
+
     </div>
   </div>
 </body>

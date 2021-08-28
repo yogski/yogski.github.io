@@ -690,3 +690,9 @@ a.dotted-link:hover {
     max-width: inherit;
   }
 }
+
+.sticky-part {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
