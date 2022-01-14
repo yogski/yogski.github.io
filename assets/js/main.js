@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
     
         //Change this to your own rss feeds
         [
-            "https://dev.to/feed/yogski",
             "https://medium.com/feed/@yogisaputro",
+            "https://dev.to/feed/yogski",
             // "https://yogski.wordpress.com/feed/"
         ],
         
@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
         // how many entries do you want?
         // default: 4
         // valid values: any integer
-        limit: 5,
+        limit: 30,
         
         // the effect, which is used to let the entries appear
         // default: 'show'
