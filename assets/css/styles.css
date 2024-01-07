@@ -388,19 +388,6 @@ a.dotted-link:hover {
   font-weight: normal;
 }
 
-/* Git section */
-.github-graph {
-  margin-bottom: 30px;
-}
-
-.github-graph .js-calendar-graph-svg {
-  max-width: 100%;
-}
-
-.github-graph h2 {
-  font-size: 18px;
-}
-
 .ghfeed {
   height: 500px;
 }

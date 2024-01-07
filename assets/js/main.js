@@ -1,77 +1,68 @@
-$(window).on('load', function() {
+// $(window).on('load', function() {
 
-    $('.level-bar-inner').each(function() {
+//     $('.level-bar-inner').each(function() {
     
-        var itemWidth = $(this).data('level');
+//         var itemWidth = $(this).data('level');
         
-        $(this).animate({
-            width: itemWidth
-        }, 800);
+//         $(this).animate({
+//             width: itemWidth
+//         }, 800);
         
-    });
+//     });
 
-});
+// });
 
+function parseRSS(url, callback) {
+	const parser = new RSSParser();
 
-jQuery(document).ready(function($) {
+	// CORS_PROXY is for development only
+	const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+	var currentHost = window.location.host;
 
+	const finalURL = (currentHost === '' || /^localhost(:\d+)?$/.test(currentHost)) ? CORS_PROXY + url : url;
+	parser.parseURL( finalURL, function(err, feed) {
+			if (err) {
+			console.error('Error parsing RSS feed:', err);
+			} else {
+			callback(feed.items);
+			}
+	});
+}
 
-    /*======= Skillset *=======*/
-    
-    $('.level-bar-inner').css('width', '0');
-    
-    
-    
-    /* Bootstrap Tooltip for Skillset */
-    $('.level-label').tooltip();
-    
-    
-    /* jQuery RSS - https://github.com/sdepold/jquery-rss */
-    
-    $("#rss-feeds").rss(
-    
-        //Change this to your own rss feeds
-        [
-            "https://medium.com/feed/@yogisaputro",
-            "https://dev.to/feed/yogski",
-            // "https://yogski.wordpress.com/feed/"
-        ],
-        
-        {
-        // how many entries do you want?
-        // default: 4
-        // valid values: any integer
-        limit: 30,
-        
-        // the effect, which is used to let the entries appear
-        // default: 'show'
-        // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
-        effect: 'show',
-        
-        // will request the API via https
-	    // default: false
-	    // valid values: false, true
-	    ssl: true,
-        
-        // outer template for the html transformation
-        // default: "<ul>{entries}</ul>"
-        // valid values: any string
-        layoutTemplate: "<div class='items'>{entries}</div>",
-        
-        // inner template for each entry
-        // default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
-        // valid values: any string
-        entryTemplate: '<div class="item"><h3 class="title"><a href="{url}" target="_blank">{title}</a></h3><div><p>{shortBodyPlain}</p><a class="more-link" href="{url}" target="_blank"><i class="fas fa-external-link-alt"></i>Read more</a></div></div>'
-        
-        }
-    );
-    
-    /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    new GitHubCalendar("#github-graph", "IonicaBizau");
-    
-    
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "mdo", selector: "#ghfeed" });
+function extractSnippet(content, length) {
+	// Use regex to match the text up to the specified length
+	const snippet = content.match(new RegExp(`^.{0,${length}}[\\S]*`))[0];
+	return snippet;
+}
 
+// Function to display blog posts in the specified div
+function displayBlogPosts(posts, displayCount = 0) {
+	const blogPostsDiv = document.getElementById('rss-feeds');
 
+	// Clear any existing content in the div
+	blogPostsDiv.innerHTML = '';
+
+	// Check displayCount, if 0, display all posts.
+	var postsToDisplay = (displayCount <= 0) ? posts : posts.slice(0, displayCount)
+
+	// Create and append HTML elements for each blog post
+	postsToDisplay.forEach(post => {
+			const postElement = document.createElement('div');
+			postElement.innerHTML = `
+			<h4><a href="${post.link}" target="_blank">${post.title}</a></h4>
+			<p>${extractSnippet(post['content:encodedSnippet'], 200)} ...<i>(<a href="${post.link}" target="_blank">continue reading</a>)</i></p>
+			<p>Published on: ${new Date(post.pubDate).toLocaleDateString()}</p>
+			<hr>
+			`;
+			blogPostsDiv.appendChild(postElement);
+	});
+}
+
+// Example usage
+const rssFeedUrl = 'https://medium.com/feed/@yogisaputro';
+const POSTS_TO_DISPLAY = 3;
+
+parseRSS(rssFeedUrl, function(posts) {
+	// Display the parsed blog posts in the specified div
+	displayBlogPosts(posts, POSTS_TO_DISPLAY);
 });

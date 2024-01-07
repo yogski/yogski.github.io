@@ -10,9 +10,14 @@
     <meta name="author" content="Yogi Saputro">    
     <link rel="shortcut icon" href="favicon.ico">  
     
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+
     <!-- FontAwesome JS -->
     <script defer src="assets/fontawesome/js/all.js"></script>
     
@@ -21,6 +26,10 @@
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
     
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    </noscript>
 </head> 
 
 <body>
@@ -125,18 +134,13 @@
                 
                 <section class="projects section">
                     <div class="section-inner">
-                        <h2 class="heading">Featured Articles</h2>
+                        <h2 class="heading">Latest Articles</h2>
+                        <div id="rss-feeds" class="content"></div>
                         <div class="content">
-                            <div class="item">
-                                <h3 class="title"><a href="https://dev.to/yogski/data-wrangling-with-vscode-yes-really-2bbf" target="_blank">Data Wrangling with VSCode (Yes, Really!)</a> </h3>
-                                <p class="summary">Unorthodox Techniques and tips for transforming raw text data to standard format using VSCode. It's effective, quick, and dirty. Suitable for one-time wrangling.</p>
-                            </div><!--//item-->
-                            
                             <h3 class="title">
                                 <a href="./articles.html" class="button-custom ml-3">Browse All Articles</a>
                             </h3>
-
-                        </div><!--//content-->  
+                        </div>
                     </div><!--//section-inner-->                 
                 </section><!--//section-->
                 
@@ -272,13 +276,13 @@
     </footer><!--//footer-->
  
     <!-- Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/popper.min.js"></script> 
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
-    <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
+    <!-- <script type="text/javascript" src="assets/plugins/jquery-3.4.1.min.js"></script> -->
+    <!-- <script type="text/javascript" src="assets/plugins/popper.min.js"></script>  -->
+    <!-- <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     -->
 
     <!-- custom js -->
-    <script type="text/javascript" src="assets/js/main.js"></script>            
+    <script src="https://cdn.jsdelivr.net/npm/rss-parser@3.11.0/dist/rss-parser.min.js"></script>
+    <script defer type="text/javascript" src="assets/js/main.js"></script>            
 </body>
 </html> 
 
