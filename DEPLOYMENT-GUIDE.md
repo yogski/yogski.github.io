@@ -37,7 +37,7 @@ GET https://yogski.github.io/assets/Crossword-Dln-XB2z.js → 404 Not Found
 ```
 
 **Root Cause:**
-1. Build tools generate JavaScript/CSS with absolute paths: `/assets/file.js`
+1. Build tools generate JavaScript/CSS with hardcoded paths referencing `/assets/file.js`
 2. When served from `yogski.github.io/crosswords-maker-ui-v2/`, the browser looks for `/assets/` at domain root
 3. Assets actually exist at `yogski.github.io/crosswords-maker-ui-v2/assets/`
 
@@ -49,15 +49,9 @@ GET https://yogski.github.io/assets/Crossword-Dln-XB2z.js → 404 Not Found
 <link rel="icon" href="/favicon.ico" />
 ```
 
-**Compiled HTML** (still has root-relative paths):
-```html
-<script src="./assets/index-Dck_VEzk.js"></script>
-<link rel="icon" href="./favicon.ico" />
-```
-
-**But the bundled JavaScript contains hardcoded asset references:**
+**Compiled JavaScript contains hardcoded asset paths:**
 ```javascript
-// In assets/index-Dck_VEzk.js - still uses absolute paths!
+// In assets/index-Dck_VEzk.js
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[
   "assets/Crossword-Dln-XB2z.js",      // ❌ Resolves to /assets/
   "assets/gridBitmask-hsA6u_tc.js",
@@ -65,58 +59,54 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[
 ])))
 ```
 
-## The Solution: `build-copy.sh` Path Transformation
+## The Solution: Absolute Paths from Repository Root
 
-The script automatically fixes all path references:
+The `build-copy.sh` script automatically transforms asset paths to use **absolute paths from the GitHub Pages root**, prefixed with the deployment folder name:
 
-### 1. HTML File Paths
-```diff
-- <link rel="icon" href="/favicon.ico" />
-+ <link rel="icon" href="./favicon.ico" />
-- <script type="module" src="/src/main.tsx"></script>
-+ <script type="module" src="./src/main.tsx"></script>
-```
-
-### 2. Bundled Asset References
+### Path Transformation
 ```javascript
 // Before (hardcoded in Vite bundles)
-d=(m.f||(m.f=["assets/Crossword-Dln-XB2z.js", ...]))
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[
+  "assets/Crossword-Dln-XB2z.js",
+  "assets/gridBitmask-hsA6u_tc.js",
+])))
 
 // After (transformed by build-copy.sh)
-d=(m.f||(m.f=["./assets/Crossword-Dln-XB2z.js", ...]))
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[
+  "crosswords-maker-ui-v2/assets/Crossword-Dln-XB2z.js",
+  "crosswords-maker-ui-v2/assets/gridBitmask-hsA6u_tc.js",
+])))
 ```
 
-Handles both quote types:
-- Double quotes: `"assets/file.js"` → `"./assets/file.js"`
-- Single quotes: `'assets/file.js'` → `'./assets/file.js'`
+This works because:
+- GitHub Pages serves from `https://yogski.github.io/`
+- Path `crosswords-maker-ui-v2/assets/file.js` resolves to `https://yogski.github.io/crosswords-maker-ui-v2/assets/file.js` ✅
+- The browser can now find the assets correctly
+
+### How the Script Works
+The script:
+1. Copies the build folder to the target output name
+2. Transforms HTML absolute paths: `href="/"` → `href="./"`
+3. Prefixes all bundled asset references with the deployment folder name
+   - `"assets/file.js"` → `"OUTPUT_NAME/assets/file.js"`
+   - Handles both double and single quotes
+
+## Why Not Use Relative Paths?
+
+While relative paths like `./assets/file.js` work for HTML files served from the root of a directory, they fail in bundled JavaScript because:
+- Vite minifies/chunks assets, and relative paths don't work consistently across different bundle entry points
+- Some assets are loaded dynamically with module splitting, making relative resolution unreliable
+- Absolute paths from repository root provide guaranteed resolution
 
 ## Why Not Fix at Source?
 
-The proper solution is to configure your build tool with a relative base path:
-
-### Vite (Recommended)
-Edit `vite.config.ts`:
-```typescript
-export default defineConfig({
-  base: './',  // Use relative paths for deployment
-  plugins: [react()],
-  // ... rest of config
-})
-```
-
-### Create React App
-Edit `.env` or `.env.production`:
-```
-PUBLIC_URL=./
-```
-
-### Next.js / Other Frameworks
-Consult your framework's deployment documentation for base path configuration.
-
-**However**, the `build-copy.sh` script provides a flexible workaround for already-built outputs, useful when:
+The ideal solution is to configure your build tool with a `base` path that includes the deployment folder. However, this is often not feasible when:
 - Multiple versions share the same source (e.g., v1 and v2)
 - You're redeploying without rebuilding
-- The source project doesn't have base path configuration
+- The source project doesn't support base path configuration
+- The deployment path changes frequently
+
+The `build-copy.sh` script provides a **build-time transformation** that works with any project, regardless of source configuration.
 
 ## Troubleshooting
 

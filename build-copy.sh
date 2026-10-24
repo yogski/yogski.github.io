@@ -82,10 +82,16 @@ find . -name "*.html" -type f -exec sed -i 's|="/|="./|g' {} \;
 echo "✓ Replaced absolute paths with relative paths in HTML files"
 
 # Fix bundled asset references in JS/CSS files (Vite, etc.)
-# Handles both single and double quotes: "assets/..." and 'assets/...'
-find . -type f -name "*.js" -exec sed -i 's|"assets/|"./assets/|g; s|'"'"'assets/|'"'"'./assets/|g' {} \;
-find . -type f -name "*.css" -exec sed -i 's|"assets/|"./assets/|g; s|'"'"'assets/|'"'"'./assets/|g' {} \;
+# Transform asset paths to use absolute paths from repo root
+# Pattern: "assets/..." → "OUTPUT_NAME/assets/..."
+# Handles both single and double quotes
 
-echo "✓ Fixed bundled asset references in JS/CSS files"
+find . -type f -name "*.js" -exec sed -i \
+  "s|\"assets/|\"$OUTPUT_NAME/assets/|g; s|'assets/|'$OUTPUT_NAME/assets/|g" {} \;
+
+find . -type f -name "*.css" -exec sed -i \
+  "s|\"assets/|\"$OUTPUT_NAME/assets/|g; s|'assets/|'$OUTPUT_NAME/assets/|g" {} \;
+
+echo "✓ Fixed bundled asset references to use repo-root-relative paths ($OUTPUT_NAME/assets/...)"
 
 echo "Done! You are now in: $(pwd)"
